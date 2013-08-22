@@ -13,12 +13,12 @@ class TestMyView(unittest.TestCase):
         engine = create_engine('sqlite://')
         from .models import (
             Base,
-            MyModel,
+            User,
             )
         DBSession.configure(bind=engine)
         Base.metadata.create_all(engine)
         with transaction.manager:
-            model = MyModel(name='one', value=55)
+            model = User(username='one', password='test')
             DBSession.add(model)
 
     def tearDown(self):
@@ -31,3 +31,12 @@ class TestMyView(unittest.TestCase):
         info = my_view(request)
         self.assertEqual(info['one'].name, 'one')
         self.assertEqual(info['project'], '{{project}}')
+
+
+class TestUserModel(unittest.TestCase):
+
+    def test_password(self):
+        from .models import User
+        password = "test"
+        model = User(username="pass", password=password)
+        self.assertEqual(model.check_password(password), True)
