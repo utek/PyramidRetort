@@ -38,3 +38,8 @@ Usage
 To create new pyramid app using Retort scaffold just run::
 
     pcreate -s retort <new_project_name>
+
+.. image:: https://d2weczhvl823v0.cloudfront.net/utek/pyramidretort/trend.png
+   :alt: Bitdeli badge
+   :target: https://bitdeli.com/free
+
