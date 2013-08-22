@@ -1,0 +1,33 @@
+<%
+from pyramid.security import authenticated_userid
+user_id = authenticated_userid(request)
+%>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>{{project}}</title>
+    <link href="${request.static_url('{{project}}:static/css/normalize.css')}" rel="stylesheet">
+    <link href="${request.static_url('{{project}}:static/css/bootstrap.min.css')}" rel="stylesheet">    
+    <link rel="stylesheet" href="${request.static_url('{{project}}:static/css/style.css')}" type="text/css" media="screen" charset="utf-8" />
+    <%block name="additonal_scripts">
+    </%block>
+  </head>
+  <body>
+    <div class="navbar navbar-fixed-top">
+      <a href="${request.route_url('home')}" class="navbar-brand">{{project}}</a>
+      <form class="navbar-form pull-right">
+        <input type="text" class="form-control" style="width: 200px;" placeholder="Login">
+        <input type="password" class="form-control" style="width: 200px;" placeholder="Password">
+        <button type="submit" class="btn btn-primary">GO!</button>
+      </form>
+    </div>
+    <div class="container">
+      ${next.body()}
+    </div>
+    <script src="${request.static_url('{{project}}:static/js/lib/jquery/jquery-1.10.2.min.js')}"></script>
+    <script src="${request.static_url('{{project}}:static/js/lib/jquery/jquery-ui-1.10.3.custom.min.js')}"></script>
+    <script src="${request.static_url('{{project}}:static/js/lib/knockout/knockout-2.3.0.js')}"></script>    
+    <script src="${request.static_url('{{project}}:static/js/main.js')}"></script>
+  </body>
+</html>

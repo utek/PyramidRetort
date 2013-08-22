@@ -1,0 +1,16 @@
+{{project}} README
+==================
+
+Getting Started
+---------------
+
+- cd <directory containing this file>
+
+- $venv/bin/python setup.py develop
+
+- $venv/bin/alembic -c development.ini revision --autogenerate -m "initial"
+
+- $venv/bin/alembic -c development.ini upgrade head
+
+- $venv/bin/pserve development.ini
+

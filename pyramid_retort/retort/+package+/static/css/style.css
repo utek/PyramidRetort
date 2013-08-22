@@ -1,0 +1,86 @@
+html, body {
+    font-family: arial, verdana, sans-serif;
+}
+body {
+    padding-top: 70px;
+}
+.red {
+    color: #ff0000;
+}
+.blue {
+    color: #0000ff;
+}
+.map {
+    width: 100%;
+    height: 640px;
+}
+.center {
+    text-align:center;
+}
+.left {
+    text-align:left;
+}
+.right {
+    text-align:right;
+}
+.loader {
+    height: 25px;
+}
+.spinner {
+    display: inline-block;
+    opacity: 0;
+    width: 0;
+    -webkit-transition: opacity 0.25s, width 0.25s;
+    -moz-transition: opacity 0.25s, width 0.25s;
+    -o-transition: opacity 0.25s, width 0.25s;
+    transition: opacity 0.25s, width 0.25s;
+}
+.has-spinner.active {
+    cursor:progress;
+}
+.has-spinner.active .spinner {
+    opacity: 1;
+    width: auto;
+    /* This doesn't work, just fix for unkown width elements */
+}
+.has-spinner.btn-mini.active .spinner {
+    width: 10px;
+}
+.has-spinner.btn-small.active .spinner {
+    width: 13px;
+}
+.has-spinner.btn.active .spinner {
+    width: 16px;
+}
+.has-spinner.btn-large.active .spinner {
+    width: 19px;
+}
+.hidden {
+    display: none;
+}
+.visible {
+    display: block;
+}
+.edit {
+    display: none;
+}
+.editing .edit {
+    display: block;
+}
+.editing .view {
+    display: none;
+}
+.edit-input {
+    width: 90%;
+}
+.panel-places {
+    padding: 5px 5px 0 5px;
+}
+.place {
+    margin-bottom: 5px;
+}
+
+.panel-search {
+    padding: 5px 5px 5px 5px;
+    margin-bottom: 5px;
+}

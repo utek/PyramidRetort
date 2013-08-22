@@ -1,0 +1,3 @@
+<%inherit file="{{project}}:templates/layout.mako"/>
+<div class="row">  
+</div>
