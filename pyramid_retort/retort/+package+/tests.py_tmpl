@@ -20,17 +20,23 @@ class TestMyView(unittest.TestCase):
         with transaction.manager:
             model = User(username='one', password='test')
             DBSession.add(model)
+            DBSession.flush()
+            self.id = model.id
+
 
     def tearDown(self):
         DBSession.remove()
         testing.tearDown()
 
     def test_it(self):
-        from .views import my_view
-        request = testing.DummyRequest()
-        info = my_view(request)
-        self.assertEqual(info['one'].name, 'one')
-        self.assertEqual(info['project'], '{{project}}')
+        # from .views import my_view
+        # request = testing.DummyRequest()
+        # info = my_view(request)
+        from .models import User
+        user = User.by_username("one")
+        self.assertEqual(user.username, "one")
+        self.assertEqual(user.check_password("test"), True)
+        self.assertEqual(user.id, self.id)
 
 
 class TestUserModel(unittest.TestCase):
